@@ -476,7 +476,7 @@ var RobotArm = function (canvas) {
         }
     };
 
-    self.randomLevel = function (columns, rows) {
+    self.randomLevel = function () {
 		columns = 5;
 		rows = 6;
 
