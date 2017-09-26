@@ -76,7 +76,7 @@ Verplaats de hele stapel blokken één plek naar rechts. Zorg ervoor dat de volg
   var canvas = document.getElementById("canvas");
   var robotArm = new RobotArm(canvas);
 
-  robotArm.loadLevel("exercise 5");
+  robotArm.loadLevel("exercise 6");
 
   // Je eigen code plaats je hier.
 
