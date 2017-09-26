@@ -1,0 +1,65 @@
+<html>
+    <body>
+        <canvas id="canvas" width="800" height="600"></canvas>
+        <script src="robot-arm.js"></script>
+        <script>
+            // Initialize the robot arm
+            var canvas = document.getElementById("canvas");
+            var robotArm = new RobotArm(canvas);
+
+            // Either use loadLevel or randomLevel to create a start scene
+            robotArm.loadLevel("exercise 6");
+            robotArm.speed = 1000;
+
+            // My instructions come here
+            robotArm.moveRight();
+            robotArm.moveRight();
+            robotArm.moveRight();
+            robotArm.moveRight();
+            robotArm.moveRight();
+            robotArm.moveRight();
+            robotArm.moveRight();
+            robotArm.grab();
+            robotArm.moveRight();
+            robotArm.drop();
+            robotArm.moveLeft();
+            robotArm.moveLeft();
+            robotArm.grab();
+            robotArm.moveRight();
+            robotArm.drop();
+            robotArm.moveLeft();
+            robotArm.moveLeft();
+            robotArm.grab();
+            robotArm.moveRight();
+            robotArm.drop();
+            robotArm.moveLeft();
+            robotArm.moveLeft();
+            robotArm.grab();
+            robotArm.moveRight();
+            robotArm.drop();
+            robotArm.moveLeft();
+            robotArm.moveLeft();
+            robotArm.grab();
+            robotArm.moveRight();
+            robotArm.drop();
+            robotArm.moveLeft();
+            robotArm.moveLeft();
+            robotArm.grab();
+            robotArm.moveRight();
+            robotArm.drop();
+            robotArm.moveLeft();
+            robotArm.moveLeft();
+            robotArm.grab();
+            robotArm.moveRight();
+            robotArm.drop();
+            robotArm.moveLeft();
+            robotArm.moveLeft();
+            robotArm.grab();
+            robotArm.moveRight();
+            robotArm.drop();
+
+            // Call run to run the animations
+            robotArm.run();
+        </script>
+    </body>
+</html>
