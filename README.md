@@ -207,7 +207,7 @@ Let op, de blokken zijn iedere keer anders als je het programma start!
   var canvas = document.getElementById("canvas");
   var robotArm = new RobotArm(canvas);
 
-  robotArm.randomLevel();
+  robotArm.randomLevel( 1, 8);
 
   // Je eigen code plaats je hier.
 
