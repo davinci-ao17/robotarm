@@ -1,5 +1,6 @@
 window.onload = function() {
-    var levelNumber = prompt("Please enter level number:", "1");
+    // LAAD DE LEVELS DOOR HET LEVEL GETAL IN DE ALERT TE VOEREN. SOMIGE LEVELS KUNNEN OOK EEN BONUS LEVEL ZIJN EN OM DIE TE LADEN MOET JE HET LEVEL NUMMER INVULLEN EN IN DE 2DE ALERT 1 IN TE VULLEN
+    var levelNumber = prompt("Please enter level number (max 13):", "1");
     if (levelNumber == null || levelNumber == "" || isNaN(levelNumber) || levelNumber <= 0) {
         alert("NO LEVEL NUMBER. PLEASE RELOAD PAGE AND TRY AGAIN");
         return;
@@ -22,6 +23,8 @@ window.onload = function() {
     function calcRobotMovement(levelName){
         if(levelName === "exercise 13"){
             robotArm.randomLevel();
+        }else if(isBonus || levelName === "exercise 4"){
+            robotArm.randomLevel(4);
         }else{
             robotArm.loadLevel(levelName);
         }
@@ -80,7 +83,7 @@ window.onload = function() {
                     BonusLevel4();
                     break;
                 case "exercise 4":
-                    BonusLevel5();
+                    setTimeout(BonusLevel5, 1000);
                     break;
                 default:
                     alert("cant load level");
@@ -248,7 +251,7 @@ window.onload = function() {
             robotArm.grab();
             var color = robotArm.scan();
             if(color === "red"){
-                for(var r = 0; r < (9-blocks); r++){
+                for(var r = 0; r < (9-count); r++){
                     robotArm.moveRight();
                 }
                 robotArm.drop();
@@ -427,7 +430,93 @@ window.onload = function() {
     }
     
     function BonusLevel4(){
+        var blocks = 1;
+        var steps = 5;
+        for(var r = 0; r < 4; r++){
+            for(var c = 0; c < blocks; c++){
+                robotArm.grab();
+                for(var m = 0; m < 5; m++){
+                    robotArm.moveRight();
+                }
+                robotArm.drop();
+                for(var m = 0; m < 5; m++){
+                    robotArm.moveLeft();
+                }
+            }
+            blocks++;
+            robotArm.moveRight();
+        }
+        for(var r = 0; r < 4; r++){
+            robotArm.moveRight();
+        }
+        blocks = 4;
+        for(var r = 0; r < 4; r++){
+            for(var c = 0; c < blocks; c++){
+                robotArm.grab();
+                for(var m = 0; m < steps; m++){
+                    robotArm.moveLeft();
+                }
+                robotArm.drop();
+                for(var m = 0; m < steps; m++){
+                    robotArm.moveRight();
+                }
+                steps++;
+            }
+            blocks--;
+            steps = 5;
+            robotArm.moveLeft();
+        }
+    }
+    function BonusLevel5(){
+        var countRow1 = 0;
+        var countRow2 = 0;
+        var clears = 0;
+        var color = null;
+        var count = 1;
         
-        
+        for(var f = 0; f < count; f++){
+            robotArm.grab();
+            color = robotArm.scan();
+            if(color != null){
+                robotArm.moveRight();
+                robotArm.drop();
+                robotArm.moveLeft();
+                count++;
+                countRow1++;
+            }
+        }
+        robotArm.moveRight();
+        robotArm.moveRight();
+        robotArm.moveRight();
+        count = 1;
+        for(var s = 0; s < count; s++){
+            robotArm.grab();
+            color = robotArm.scan();
+            if(color != null){
+                robotArm.moveLeft();
+                robotArm.drop();
+                robotArm.moveRight();
+                count++;
+                countRow2++;
+            }
+        }
+        robotArm.moveLeft();
+        for(var t = 0; t < countRow2; t++){
+            robotArm.grab();
+            robotArm.moveLeft();
+            robotArm.moveLeft();
+            robotArm.drop();
+            robotArm.moveRight();
+            robotArm.moveRight();
+        }
+        robotArm.moveLeft();
+        for(var t = 0; t < countRow1; t++){
+            robotArm.grab();
+            robotArm.moveRight();
+            robotArm.moveRight();
+            robotArm.drop();
+            robotArm.moveLeft();
+            robotArm.moveLeft();
+        }
     }
 };
