@@ -470,6 +470,8 @@ window.onload = function() {
     function BonusLevel5(){
         var countRow1 = 0;
         var countRow2 = 0;
+        var countRow3 = 0;
+        var countRow4 = 0;
         var clears = 0;
         var color = null;
         var count = 1;
@@ -518,5 +520,53 @@ window.onload = function() {
             robotArm.moveLeft();
             robotArm.moveLeft();
         }
+        count = 1;
+        for(var f = 0; f < count; f++){
+            robotArm.grab();
+            color = robotArm.scan();
+            if(color != null){
+                robotArm.moveLeft();
+                robotArm.drop();
+                robotArm.moveRight();
+                count++;
+                countRow3++;
+            }
+        }
+        robotArm.moveRight();
+        count = 1;
+        for(var f = 0; f < count; f++){
+            robotArm.grab();
+            color = robotArm.scan();
+            if(color != null){
+                robotArm.moveRight();
+                robotArm.drop();
+                robotArm.moveLeft();
+                count++;
+                countRow4++;
+            }
+        }
+        
+        robotArm.moveRight();
+        for(var t = 0; t < countRow4; t++){
+            robotArm.grab();
+            robotArm.moveLeft();
+            robotArm.moveLeft();
+            robotArm.drop();
+            robotArm.moveRight();
+            robotArm.moveRight();
+        }
+        robotArm.moveLeft();
+        robotArm.moveLeft();
+        robotArm.moveLeft();
+        for(var t = 0; t < countRow3; t++){
+            robotArm.grab();
+            robotArm.moveRight();
+            robotArm.moveRight();
+            robotArm.drop();
+            robotArm.moveLeft();
+            robotArm.moveLeft();
+        }
+        
+        
     }
 };
