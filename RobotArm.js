@@ -1,13 +1,13 @@
 window.onload = function() {
     // LAAD DE LEVELS DOOR HET LEVEL GETAL IN DE ALERT TE VOEREN. SOMIGE LEVELS KUNNEN OOK EEN BONUS LEVEL ZIJN EN OM DIE TE LADEN MOET JE HET LEVEL NUMMER INVULLEN EN IN DE 2DE ALERT 1 IN TE VULLEN
-    var levelNumber = prompt("Please enter level number (max 13):", "1");
+    var levelNumber = prompt("Please enter level number (max 13, 5 doesn't exist):", "1");
     if (levelNumber == null || levelNumber == "" || isNaN(levelNumber) || levelNumber <= 0) {
         alert("NO LEVEL NUMBER. PLEASE RELOAD PAGE AND TRY AGAIN");
         return;
     }
     var isBonus = 0;
-    if(levelNumber == 3 || levelNumber == 6 || levelNumber == 11 || levelNumber == 9 || levelNumber == 4){
-        isBonus = prompt("is a bonus level? (0 = no, 1 = yes):", "0");
+    if(levelNumber > 0 && levelNumber <= 5){
+        isBonus = prompt("load bonus level? (0 = no, 1 = yes):", "0");
         if (isBonus == null || isBonus == "" || isNaN(isBonus) || isBonus < 0) {
             alert("NO VALID NUMBER. PLEASE RELOAD PAGE AND TRY AGAIN");
             return;
@@ -19,15 +19,8 @@ window.onload = function() {
     var levelName = "exercise " + levelNumber;
     robotArm.speed = 1000;
     calcRobotMovement(levelName);
-
+    
     function calcRobotMovement(levelName){
-        if(levelName === "exercise 13"){
-            robotArm.randomLevel();
-        }else if(isBonus || levelName === "exercise 4"){
-            robotArm.randomLevel(4);
-        }else{
-            robotArm.loadLevel(levelName);
-        }
         if(isBonus == 0){
             switch(levelName) {
                 case "exercise 1":
@@ -43,47 +36,48 @@ window.onload = function() {
                     level4();
                     break;
                 case "exercise 6":
-                    level5();
-                    break;
-                case "exercise 7":
                     level6();
                     break;
-                case "exercise 8":
+                case "exercise 7":
                     level7();
-                case "exercise 9":
+                    break;
+                case "exercise 8":
                     level8();
                     break;
-                case "exercise 10":
+                case "exercise 9":
                     level9();
                     break;
-                case "exercise 11":
+                case "exercise 10":
                     level10();
                     break;
-                case "exercise 12":
+                case "exercise 11":
                     level11();
                     break;
-                case "exercise 13":
+                case "exercise 12":
                     level12();
+                    break;
+                case "exercise 13":
+                    level13();
                     break;
                 default:
                     alert("cant load level");
             }
         }else if(isBonus == 1){
             switch(levelName) {
-                case "exercise 3":
+                case "exercise 1":
                     BonusLevel1();
                     break;
-                case "exercise 6":
+                case "exercise 2":
                     BonusLevel2();
                     break;
-                case "exercise 11":
+                case "exercise 3":
                     BonusLevel3();
                     break;
-                case "exercise 9":
+                case "exercise 4":
                     BonusLevel4();
                     break;
-                case "exercise 4":
-                    setTimeout(BonusLevel5, 1000);
+                case "exercise 5":
+                    BonusLevel5();
                     break;
                 default:
                     alert("cant load level");
@@ -93,6 +87,7 @@ window.onload = function() {
     }
 
     function level1(){
+        robotArm.loadLevel("exercise 1");
         robotArm.moveRight();
         robotArm.grab();
         robotArm.moveLeft();
@@ -100,6 +95,7 @@ window.onload = function() {
     }
 
     function level2(){
+        robotArm.loadLevel("exercise 2");
         robotArm.grab();
         for(var i = 0; i < 9; i++){
             robotArm.moveRight();
@@ -124,6 +120,7 @@ window.onload = function() {
     }
 
     function level3(){
+        robotArm.loadLevel("exercise 3");
         for(var i = 0; i < 4; i++){
             robotArm.grab();
             robotArm.moveRight();
@@ -133,6 +130,7 @@ window.onload = function() {
     }
 
     function level4(){
+        robotArm.loadLevel("exercise 4");
         for(var i = 0; i < 3; i++){
             robotArm.grab();
             robotArm.moveRight();
@@ -151,7 +149,8 @@ window.onload = function() {
         }
     }
 
-    function level5(){
+    function level6(){
+        robotArm.loadLevel("exercise 6");
         for(var i = 0; i < 7; i++){
             robotArm.moveRight();
         }
@@ -164,7 +163,8 @@ window.onload = function() {
         }
     }
 
-    function level6(){
+    function level7(){
+        robotArm.loadLevel("exercise 7");
         for(var r = 0; r < 5; r++){
             for(var i = 0; i < 6; i++){
                 robotArm.moveRight();
@@ -177,7 +177,8 @@ window.onload = function() {
         }
     }
 
-    function level7(){
+    function level8(){
+        robotArm.loadLevel("exercise 8");
         robotArm.moveRight();
         for(var i = 0; i < 7; i++){
             robotArm.grab();
@@ -191,7 +192,8 @@ window.onload = function() {
         }
     }
 
-    function level8(){
+    function level9(){
+        robotArm.loadLevel("exercise 9");
         var blocks = 1;
         for(var c = 0; c < 4; c++){
             for(var i = 0; i < blocks; i++){
@@ -209,7 +211,8 @@ window.onload = function() {
         }
     }
 
-    function level9(){
+    function level10(){
+        robotArm.loadLevel("exercise 10");
         var count = 9;
         for(var r = 0; r < 5; r++){
             robotArm.grab();
@@ -225,7 +228,8 @@ window.onload = function() {
         }
     }
 
-    function level10(){
+    function level11(){
+        robotArm.loadLevel("exercise 11");
         for(var i = 0; i < 9; i++){
             robotArm.moveRight();
         }
@@ -245,7 +249,8 @@ window.onload = function() {
         }
     }
 
-    function level11(){
+    function level12(){
+        robotArm.loadLevel("exercise 12");
         var count = 0;
         for(var i = 0; i < 9; i++){
             robotArm.grab();
@@ -266,7 +271,8 @@ window.onload = function() {
         }
     }
 
-    function level12(){
+    function level13(){
+        robotArm.randomLevel(1,8);
         var count = 0;
         var placeCount = 0;
         for(var i = 0; i < 30; i++){
@@ -300,6 +306,7 @@ window.onload = function() {
     }
     
     function BonusLevel1(){
+        robotArm.loadLevel("exercise 3");
         var steps = 2;
         for(var i = 0; i < 4; i++){
             robotArm.grab();
@@ -315,6 +322,7 @@ window.onload = function() {
     }
     
     function BonusLevel2(){
+        robotArm.loadLevel("exercise 6");
         var steps = 2;
         var color = null;
         var moves = 0;
@@ -372,6 +380,7 @@ window.onload = function() {
     }
     
     function BonusLevel3(){
+        robotArm.loadLevel("exercise 11");
         var color = null;
         var red = 0;
         var green = 0;
@@ -430,6 +439,7 @@ window.onload = function() {
     }
     
     function BonusLevel4(){
+        robotArm.loadLevel("exercise 9");
         var blocks = 1;
         var steps = 5;
         for(var r = 0; r < 4; r++){
@@ -468,6 +478,7 @@ window.onload = function() {
         }
     }
     function BonusLevel5(){
+        robotArm.randomLevel(4);
         var countRow1 = 0;
         var countRow2 = 0;
         var countRow3 = 0;
