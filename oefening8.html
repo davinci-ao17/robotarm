@@ -6,10 +6,8 @@
             var canvas = document.getElementById("canvas");
             var robotArm = new RobotArm(canvas);
             robotArm.loadLevel("exercise 9");
-            robotArm.speed = 700;
-           
+            robotArm.speed = 700;           
             var blocks=1;
-
             for(a=0; a<4; a++){               
                 for(b=0; b<blocks; b++){
                     robotArm.grab();
@@ -24,7 +22,6 @@
                 blocks++;
                 robotArm.moveRight();
             }
-
             robotArm.run();
         </script>
     </body>

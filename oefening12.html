@@ -5,14 +5,38 @@
           <script>
             var canvas = document.getElementById("canvas");
             var robotArm = new RobotArm(canvas);
-            robotArm.randomLevel( 1, 8);
-            robotArm.speed = 400;
-            color = robotArm.scan;
-
-            for(a=0; a<9; a++){
-            robotArm.grab();}
-            robotArm.moveRight();
-            robotArm.drop();
+                        robotArm.speed = 2000;
+            robotArm.randomLevel(1,8);
+         var count = 0;
+         var placeCount = 0;
+         for(var i = 0; i < 3; i++){
+             robotArm.grab();
+             var color = robotArm.scan();
+             if(color != null){
+                 for(var r = 0; r < (9-count); r++){
+                     robotArm.moveRight();
+                 }
+                 robotArm.drop();
+                 for(var l = 0; l < (9-count); l++){
+                     robotArm.moveLeft();
+                 }
+             }else{
+                 robotArm.moveRight();
+                 count++;
+             }
+         }
+         
+         for(var i = 0; i < 9; i++){
+             robotArm.grab();
+             for(var l = 0; l < (placeCount + 1); l++){
+                 robotArm.moveLeft();
+             }
+             robotArm.drop();
+             for(var r = 0; r < (placeCount + 1); r++){
+                 robotArm.moveRight();
+             }
+             placeCount++;
+         }
             robotArm.run();
           </script>
     </body>

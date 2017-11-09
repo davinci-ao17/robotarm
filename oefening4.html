@@ -6,6 +6,7 @@
             var canvas = document.getElementById("canvas");
             var robotArm = new RobotArm(canvas);
             robotArm.loadLevel("exercise 4");
+            robotArm.speed = 200;
 
             robotArm.grab();
             robotArm.moveRight();
@@ -16,7 +17,6 @@
             robotArm.grab();
             robotArm.moveRight();
             robotArm.moveRight();
-            robotArm.moveRight();
             robotArm.drop();
             robotArm.moveLeft();
             robotArm.moveLeft();
@@ -25,9 +25,7 @@
             robotArm.moveRight();
             robotArm.drop();
             robotArm.moveRight();
-            robotArm.moveRight();
             robotArm.grab();
-            robotArm.moveLeft();
             robotArm.moveLeft();
             robotArm.drop();
             robotArm.moveRight();
