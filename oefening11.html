@@ -10,20 +10,20 @@
             color = robotArm.scan;
 
             for(a=0; a<8; a++){
-            robotArm.moveRight();}
+                robotArm.moveRight();}
             for(a=0; a<9; a++){
-            robotArm.grab();
+                robotArm.grab();
             if (robotArm.scan()=="red") {
-            for(b=0; b<=a; b++){
-            robotArm.moveRight();
+                for(b=0; b<=a; b++){
+                    robotArm.moveRight();
             }
             robotArm.drop();
             for(b=0; b<=a; b++){
-            robotArm.moveLeft();
-            }
+                robotArm.moveLeft();
+             }
             }
             else {robotArm.drop();}
-            robotArm.moveLeft();
+                robotArm.moveLeft();
             }
             robotArm.run();
           </script>
