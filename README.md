@@ -70,7 +70,7 @@ Verplaats de hele stapel blokken één plek naar rechts. Zorg ervoor dat de volg
 
 ![Oefening 4](readme/exercise4.png)
 
-## Oefening 5
+## Oefening 6
 ```javascript
 <script>
   var canvas = document.getElementById("canvas");
@@ -87,7 +87,7 @@ Verplaats alle blokken één plek naar rechts. Zorg ervoor dat de volgorde van d
 
 ![Oefening 5](readme/exercise6.png)
 
-## Oefening 6
+## Oefening 7
 ```javascript
 <script>
   var canvas = document.getElementById("canvas");
@@ -106,7 +106,7 @@ Je mag maximaal 13 regels code gebruiken!
 
 ![Oefening 6](readme/exercise7.png)
 
-## Oefening 7
+## Oefening 8
 ```javascript
 <script>
   var canvas = document.getElementById("canvas");
@@ -125,7 +125,7 @@ Je mag maximaal 13 regels code gebruiken!
 
 ![Oefening 7](readme/exercise8.png)
 
-## Oefening 8
+## Oefening 9
 ```javascript
 <script>
   var canvas = document.getElementById("canvas");
@@ -144,7 +144,7 @@ Je mag maximaal 15 regels code gebruiken!
 
 ![Oefening 8](readme/exercise9.png)
 
-## Oefening 9
+## Oefening 10
 ```javascript
 <script>
   var canvas = document.getElementById("canvas");
@@ -163,7 +163,7 @@ Je mag maximaal 20 regels code gebruiken!
 
 ![Oefening 9](readme/exercise10.png)
 
-## Oefening 10
+## Oefening 11
 ```javascript
 <script>
   var canvas = document.getElementById("canvas");
@@ -182,7 +182,7 @@ Let op, de blokken zijn iedere keer anders als je het programma start!
 
 ![Oefening 10](readme/exercise11.png)
 
-## Oefening 11
+## Oefening 12
 ```javascript
 <script>
   var canvas = document.getElementById("canvas");
@@ -201,7 +201,7 @@ Let op, de blokken zijn iedere keer anders als je het programma start!
 
 ![Oefening 11](readme/exercise12.png)
 
-## Oefening 12
+## Oefening 13
 ```javascript
 <script>
   var canvas = document.getElementById("canvas");
