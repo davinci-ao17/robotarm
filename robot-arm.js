@@ -479,12 +479,14 @@ var RobotArm = function (canvas) {
         }
     };
 
-    self.randomLevel = function (columns) {
-		columns = columns || 5;
-		rows = 6;
+    self.randomLevel = function (columns, maxrows) {
+        columns = columns || 5;
+        maxros = maxrows || 6;
+		var rows;
 
 		var map = [];
 		for (var c = 0; c < columns; c++) {
+            rows = 1 + Math.floor(Math.random() *(maxrows));
 			map[c] = [];
 			var rh = Math.floor(Math.random() * rows + 1);
 			for (var r = 0; r < rh; r++) {
